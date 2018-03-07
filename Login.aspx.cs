@@ -16,14 +16,31 @@ namespace DevOps_Reg117209
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (txtUserId.Text == "")
+            {
+                Response.Write("<script>alert('User Id cannot be empty');</script>");
+            }
+
+            if (txtPwd.Text == "")
+            {
+                Response.Write("<script>alert('Pasword cannot be empty');</script>");
+            }
+
             if ((txtUserId.Text == "DEVOPS") && (txtPwd.Text == "Wipro@123"))
             {
-                Response.Redirect("MainPage.aspx");
+                // Response.Redirect("MainPage.aspx");
+                Response.Write("<script>alert('SUCCESS');window.location.href='MainPage.aspx'</script>");
             }
             else
             {
-                Response.Write("UserId or Password entered is in correct");
+                Response.Write("<script>alert('Login/Password Incorrect');</script>");
+                //Response.Redirect("MainPage.aspx");
             }
+        }
+
+        protected void cmdReset_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reset.aspx");
         }
     }
 }
